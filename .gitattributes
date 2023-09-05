@@ -57,3 +57,4 @@
 *.jshintrc filter=lfs diff=lfs merge=lfs -text
 /ПВИ/laba1/node_modules/undefsafe/LICENSE filter=lfs diff=lfs merge=lfs -text
 /ПВИ/laba1/node_modules/yallist/LICENSE filter=lfs diff=lfs merge=lfs -text
+*.tmp filter=lfs diff=lfs merge=lfs -text
