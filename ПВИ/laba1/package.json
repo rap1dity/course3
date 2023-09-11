@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:04cc85ca4e18e06161923c0e0180f50ca7d8698723ca23e40948150823a5545c
-size 273
+{
+  "name": "node_laba1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

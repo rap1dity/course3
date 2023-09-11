@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:46ef0d5afff6be2b95db59d9f0e70488834b5b3d8a648bd0b74be7b7f00bca3d
-size 434
+const express = require("express")
+const fs = require("fs")
+const PORT = process.env.PORT || 5000
+
+const app = express()
+const router = require("./router/index")
+
+app.use(express.json())
+app.use("/api", router)
+app.get("/", (req, res) => {
+    res.setHeader("Content-Type", "text/html; charset=utf-8")
+    fs.readFile("index.html", (err, data) => res.end(data))
+})
+app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))

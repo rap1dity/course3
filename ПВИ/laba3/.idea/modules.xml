@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:427753c8d81dd8ae8868240483011978f8100690dc7fdb213b7e33b3f859cd30
-size 272
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/node_laba3.iml" filepath="$PROJECT_DIR$/.idea/node_laba3.iml" />
+    </modules>
+  </component>
+</project>
