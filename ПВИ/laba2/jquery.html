@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:41a0e6bca0fb4ac309d8f08a10fe4243e4b218387e4c54fe47845362d0fa9a3d
-size 481
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery</title>
+</head>
+<body>
+<h1 id="name"></h1>
+<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+    $.ajax("http://localhost:5000/api/name")
+        .done(res => {
+            const nameObj = document.querySelector("#name");
+            nameObj.innerHTML = res;
+        })
+</script>
+</body>
+</html>

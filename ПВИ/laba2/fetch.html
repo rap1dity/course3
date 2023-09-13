@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ff19b442fc64ebd102d11ef8e144d24a4d4c2d7ca1eaf8a303fbfe265bb9077f
-size 519
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Fetch</title>
+</head>
+<body>
+<h1 id="name"></h1>
+<script>
+    fetch("http://localhost:5000/api/name")
+        .then(res => res.text())
+        .then(resText => {
+            const nameObj = document.querySelector("#name");
+            nameObj.innerHTML = resText;
+        })
+</script>
+</body>
+</html>
