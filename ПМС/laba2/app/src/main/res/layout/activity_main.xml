@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/spFigures"
+        android:layout_alignParentTop="true"
+        android:spinnerMode="dialog" >
+    </Spinner>
+
+    <include
+        android:id="@+id/includeCube"
+        layout="@layout/cube_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spFigures"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/includePrism"
+        layout="@layout/prism_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spFigures"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/includePyramid"
+        layout="@layout/pyramid_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spFigures"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/includeCone"
+        layout="@layout/cone_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spFigures"
+        android:visibility="gone"/>
+</RelativeLayout>
