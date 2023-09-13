@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:78519a55de20b8766f1d5682e5f36715632ee8841325aa18b6db35ea0899f7c9
-size 661
+const DB = require('../db')
+const uuid = require("uuid")
+class DbController{
+    async getUsers(req, res, next){
+        await DB.select().then(val => res.end(val))
+    }
+    async addUser(req, res, next){
+        const {name, bday} = req.body;
+        const user = {id: uuid.v4(), name, bday}
+        await DB.insert(user).then(val => res.end(val))
+    }
+    async editUser(req, res, next){
+        const user = req.body;
+        await DB.update(user).then(val => res.end(val))
+    }
+    async deleteUser(req, res, next){
+        const userId = req.query.id
+        await DB.delete(userId).then(val => res.end(val))
+    }
+}
+
+module.exports = new DbController()

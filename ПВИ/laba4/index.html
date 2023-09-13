@@ -1,3 +1,123 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d9949d2a8b1e1bab54ae1ad3f0682d575d798918cf4ae66291b0081342a3d20e
-size 4360
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UserApi</title>
+</head>
+<style>
+    table{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    table td, th{
+        border: 1px solid black;
+    }
+</style>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>id</th> <th>Имя</th> <th>Дата рождения</th> <th>Редактировать</th> <th>Удалить</th>
+        </tr>
+    </thead>
+    <tbody id="output">
+    </tbody>
+</table>
+<form name="userForm">
+    <input type="hidden" name="id" value="0">
+    <div class="form-group">
+        <label for="name">Имя</label>
+        <input class="form-control" type="text" name="name" />
+    </div>
+    <div class="form-group">
+        <label for="bday">Дата рождения</label>
+        <input class="form-control" type="date" name="bday" />
+    </div>
+    <div class="panel-body">
+        <button type="submit" >Сохранить</button>
+        <a id="reset">Сбросить</a>
+    </div>
+</form>
+<script>
+    const users = document.querySelector("#output")
+    const getUsers = () => {
+        fetch("http://localhost:5000/api/db")
+            .then(res => res.json())
+            .then(resJSON => {
+                resJSON.forEach(user => {
+                    const tr = document.createElement("tr")
+                    tr.appendChild(createTd(user.id))
+                    tr.appendChild(createTd(user.name))
+                    tr.appendChild(createTd(user.bday))
+                    const editButton = document.createElement("button")
+                    editButton.textContent = "редактировать"
+                    editButton.addEventListener("click", () => {
+                        const form = document.forms["userForm"];
+                        form.elements["id"].value = user.id;
+                        form.elements["name"].value = user.name;
+                        form.elements["bday"].value = user.bday;
+                    })
+                    tr.appendChild(createTd(editButton))
+                    const deleteButton = document.createElement("button")
+                    deleteButton.textContent = "удалить"
+                    deleteButton.addEventListener("click", () => deleteUser(user.id))
+                    tr.appendChild(createTd(deleteButton))
+                    users.appendChild(tr)
+                })
+            })
+    }
+    const deleteUser = async id => fetch(`http://localhost:5000/api/db?id=${id}`, {method: "DELETE"}).then(() => {
+        const tbody = document.querySelector("#output")
+        tbody.innerHTML = ''
+        getUsers()
+    })
+    const editUser = (user) => {
+        fetch("http://localhost:5000/api/db", {method: "PUT", headers: {"Content-type" : "application/json"}, body : JSON.stringify(user)})
+            .then(() => {
+                const tbody = document.querySelector("#output")
+                tbody.innerHTML = ''
+                getUsers()
+            })
+    }
+    const addUser = (user) => {
+        fetch("http://localhost:5000/api/db", {method: "POST", headers: {"Content-type" : "application/json"}, body : JSON.stringify(user)})
+            .then(() => {
+                const tbody = document.querySelector("#output")
+                tbody.innerHTML = ''
+                getUsers()
+            })
+    }
+    const createTd = (data) => {
+        const td = document.createElement("td")
+        if(data instanceof HTMLButtonElement)
+            td.appendChild(data)
+        else
+            td.innerHTML = data
+        return td;
+    }
+    getUsers()
+    const reset = () => {
+        const form = document.forms["userForm"]
+        form.reset()
+        form.elements["id"].value = 0
+    }
+    document.getElementById("reset").addEventListener("click", e => {
+        e.preventDefault();
+        reset();
+    })
+    document.forms["userForm"].addEventListener("submit", e => {
+        e.preventDefault()
+        const form = document.forms["userForm"]
+        const id = form.elements["id"].value
+        const name = form.elements["name"].value
+        const bday = form.elements["bday"].value
+        if(id === "0")
+            addUser({name, bday})
+        else
+            editUser({id, name, bday})
+        reset()
+    })
+</script>
+</body>
+</html>

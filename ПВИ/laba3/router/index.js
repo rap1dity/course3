@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1e2dab06db9d7417c6c30b8bf71f05d09a4c20afd3c5142696cad51ed844a3bc
-size 921
+const Router = require("express").Router
+const router = new Router()
+
+
+router.get("/", async (req, res) => {
+    const num = parseInt(req.query.k);
+    const factorial = {k: num, fact: await getFactorialImmediate(num)}
+    res.end(JSON.stringify(factorial))
+})
+
+
+
+const getFactorial = (num) =>{
+    if(num === 1 || num === 0)
+        return 1;
+    else
+        return num * getFactorial(num - 1)
+}
+
+const getFactorialTick = async (num) => {
+    if (num === 1 || num === 0)
+        return 1;
+    else {
+        return await new Promise((res) =>
+            process.nextTick(async () => res(num * await getFactorialTick(num - 1)))
+        )
+    }
+}
+
+const getFactorialImmediate = async (num) => {
+    if (num === 1 || num === 0)
+        return 1;
+    else {
+        return await new Promise((res) =>
+            setImmediate(async () => res(num * await getFactorialTick(num - 1)))
+        )
+    }
+}
+
+module.exports = router
