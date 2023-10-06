@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#161616"
+    tools:context=".FinalActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1F1F1F"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?android:attr/homeAsUpIndicator"
+        />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toTopOf="@+id/next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Имя: "
+                />
+            <TextView
+                android:id="@+id/educationLevel"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Образование: "
+                />
+
+            <TextView
+                android:id="@+id/haveExperience"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Имеется опыт работы: "
+                />
+
+            <TextView
+                android:id="@+id/surname"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Фамилия: "
+                />
+            <TextView
+                android:id="@+id/educationName"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Название учебного заведения: "
+                />
+
+            <TextView
+                android:id="@+id/faculty"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Факультет: "
+                />
+
+            <TextView
+                android:id="@+id/speciality"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Специальность: "
+                />
+
+            <TextView
+                android:id="@+id/beginYear"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Начало обучения: "
+                />
+
+            <TextView
+                android:id="@+id/endYear"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Конец обучения: "
+                />
+
+            <TextView
+                android:id="@+id/orgName"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Название организации: "
+                />
+
+            <TextView
+                android:id="@+id/orgPosition"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Должность: "
+                />
+
+            <TextView
+                android:id="@+id/beginWork"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Начало работы: "
+                />
+
+            <TextView
+                android:id="@+id/endWork"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:textColor="#99FFFFFF"
+                android:text="Окончание работы: "
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/next"
+        android:backgroundTint="#FF5500"
+        android:layout_width="350dp"
+        android:layout_height="64dp"
+        android:onClick="serialize"
+        android:textColor="#FFF"
+        android:text="Сериализовать"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
