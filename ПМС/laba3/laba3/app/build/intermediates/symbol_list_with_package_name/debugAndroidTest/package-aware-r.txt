@@ -1,3 +1,0 @@
-com.example.laba3.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme
